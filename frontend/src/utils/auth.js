@@ -5,8 +5,7 @@
  * @author [Devin](https://github.com/mentalcaries)
  */
 
-const BASE_URL =
-  process.env.NODE_ENV === 'development' ? 'http://localhost:4000' : process.env.REACT_APP_API_URL;
+const BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:4000';
 
 const checkServerResponse = (res) => {
   return res.ok ? res.json() : Promise.reject(`Error: ${res.status}`);
