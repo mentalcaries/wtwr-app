@@ -51,6 +51,8 @@ const App = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [likedCard, setLikeCard] = useState({});
 
+
+
   // States related to Modals
   const [isLoginOpen, setIsLoginOpen] = useState(false);
   const [isRegisterOpen, setIsRegisterOpen] = useState(false);

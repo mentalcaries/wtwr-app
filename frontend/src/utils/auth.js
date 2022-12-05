@@ -5,7 +5,8 @@
  * @author [Devin](https://github.com/mentalcaries)
  */
 
-const BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:4000';
+const BASE_URL =
+  process.env.NODE_ENV === 'development' ? 'http://localhost:4000' : process.env.REACT_APP_API_URL;
 
 const checkServerResponse = (res) => {
   return res.ok ? res.json() : Promise.reject(`Error: ${res.status}`);
@@ -16,6 +17,7 @@ const register = ({ email, password, name, avatar, preferences }) => {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
+      'Access-Control-Allow-Origin': '*',
     },
     body: JSON.stringify({ email, password, name, avatar, preferences }),
   }).then(checkServerResponse);
@@ -27,6 +29,7 @@ const login = ({ email, password }) => {
     headers: {
       Accept: 'application/json',
       'Content-Type': 'application/json',
+      'Access-Control-Allow-Origin': '*',
     },
     body: JSON.stringify({ email, password }),
   })
