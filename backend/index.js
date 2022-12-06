@@ -27,17 +27,16 @@ const { PORT = 4000, NODE_ENV, MONGO_URI } = process.env;
 mongoose.connect(NODE_ENV === 'production' ? MONGO_URI : localdb);
 
 app.use(limiter);
-
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 app.use(helmet());
 
 app.use(
   cors({
-    origin: ['*'],
+    origin: 'https://wtwr-app-production.up.railway.app/',
     methods: DEFAULT_ALLOWED_METHODS,
   }),
 );
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
 // app.options('*', cors());
 app.use(requestLogger);
 
