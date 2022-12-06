@@ -34,7 +34,7 @@ app.use(helmet());
 
 app.use(
   cors({
-    origin: allowedCors,
+    origin: ['*'],
     methods: DEFAULT_ALLOWED_METHODS,
   }),
 );
