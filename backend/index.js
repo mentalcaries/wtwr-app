@@ -33,7 +33,7 @@ app.use(helmet());
 
 app.use(
   cors({
-    origin: 'https://wtwr-app-production.up.railway.app/',
+    origin: '*',
     methods: DEFAULT_ALLOWED_METHODS,
   }),
 );
