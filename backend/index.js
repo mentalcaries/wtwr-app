@@ -22,7 +22,7 @@ const mainRouter = require('./routes/index');
 
 const app = express();
 
-const { PORT = 4000, NODE_ENV, MONGO_URI } = process.env;
+const { PORT = 4000, NODE_ENV, MONGO_URI, FRONTEND_URL } = process.env;
 
 mongoose.connect(NODE_ENV === 'production' ? MONGO_URI : localdb);
 
@@ -33,7 +33,7 @@ app.use(helmet());
 
 app.use(
   cors({
-    origin: '*',
+    origin: FRONTEND_URL,
     methods: DEFAULT_ALLOWED_METHODS,
   }),
 );

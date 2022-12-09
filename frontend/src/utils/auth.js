@@ -16,7 +16,6 @@ const register = ({ email, password, name, avatar, preferences }) => {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
-      // 'Access-Control-Allow-Origin': '*',
     },
     body: JSON.stringify({ email, password, name, avatar, preferences }),
   }).then(checkServerResponse);
@@ -28,7 +27,6 @@ const login = ({ email, password }) => {
     headers: {
       Accept: 'application/json',
       'Content-Type': 'application/json',
-      // 'Access-Control-Allow-Origin': '*',
       
     },
     body: JSON.stringify({ email, password }),
@@ -48,7 +46,6 @@ const checkToken = (token) => {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
-      // 'Access-Control-Allow-Origin': '*',
       Authorization: `Bearer ${token}`,
     },
   })
